@@ -1,0 +1,25 @@
+#!/bin/bash
+DASH_DIR="./dashboards"
+CRD_DIR="./dashboards-crds"
+NAMESPACE="grafana"
+
+mkdir -p "$CRD_DIR"
+
+find "$DASH_DIR" -name "*.json" | while read file; do
+  rel_path="${file#$DASH_DIR/}"
+  name=$(echo "${rel_path%.json}" | tr '/' '-')
+  folder=$(dirname "$rel_path" | sed 's/_/ /g')
+  cat <<EOF > "$CRD_DIR/$name.yaml"
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: $name
+  namespace: $NAMESPACE
+  labels:
+    grafana_dashboard: "1"
+spec:
+  folder: "$folder"
+  json: |
+$(sed 's/^/    /' "$file")
+EOF
+done
