@@ -7,10 +7,11 @@ mkdir -p "$CRD_DIR"
 
 find "$DASH_DIR" -name "*.json" | while read file; do
   rel_path="${file#$DASH_DIR/}"
-  name=$(echo "${rel_path%.json}" | tr '/' '-')
-  folder=$(dirname "$rel_path" | sed 's/_/ /g')
+  name=$(echo "${rel_path%.json}" | tr '/' '-')         # e.g. gke-storage-overview
+  folder=$(dirname "$rel_path" | sed 's/_/ /g')          # e.g. GKE/Storage
+
   cat <<EOF > "$CRD_DIR/$name.yaml"
-apiVersion: integreatly.org/v1alpha1
+apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: $name
@@ -18,6 +19,9 @@ metadata:
   labels:
     grafana_dashboard: "1"
 spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
   folder: "$folder"
   json: |
 $(sed 's/^/    /' "$file")

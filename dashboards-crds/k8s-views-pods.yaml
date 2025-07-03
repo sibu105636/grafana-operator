@@ -6,6 +6,9 @@ metadata:
   labels:
     grafana_dashboard: "1"
 spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
   folder: "."
   json: |
     {
