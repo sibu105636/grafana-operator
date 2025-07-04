@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: grafana
 
 resources:
-  - dashboards-crds/
+  - dashboards-crds
