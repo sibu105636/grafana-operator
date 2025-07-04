@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - data-k8s-addons-prometheus.yaml
   - data-k8s-views-global.yaml
+  - data-subdata-k8s-views-namespaces.yaml
   - k8s-addons-prometheus.yaml
   - k8s-addons-trivy-operator.yaml
   - k8s-system-api-server.yaml
@@ -12,5 +13,7 @@ resources:
   - k8s-views-namespaces.yaml
   - k8s-views-nodes.yaml
   - k8s-views-pods.yaml
+  - kustomization.yaml
   - storage-k8s-addons-trivy-operator.yaml
   - storage-k8s-views-nodes.yaml
+  - storage-substorage-k8s-system-coredns.yaml
