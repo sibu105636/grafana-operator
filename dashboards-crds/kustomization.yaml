@@ -2,4 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - .
+  - data-k8s-addons-prometheus.yaml
+  - data-k8s-views-global.yaml
+  - k8s-addons-prometheus.yaml
+  - k8s-addons-trivy-operator.yaml
+  - k8s-system-api-server.yaml
+  - k8s-system-coredns.yaml
+  - k8s-views-global.yaml
+  - k8s-views-namespaces.yaml
+  - k8s-views-nodes.yaml
+  - k8s-views-pods.yaml
+  - storage-k8s-addons-trivy-operator.yaml
+  - storage-k8s-views-nodes.yaml
