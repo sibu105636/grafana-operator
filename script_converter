@@ -7,8 +7,12 @@ mkdir -p "$CRD_DIR"
 
 find "$DASH_DIR" -name "*.json" | while read file; do
   rel_path="${file#$DASH_DIR/}"
-  name=$(echo "${rel_path%.json}" | tr '/' '-')         # e.g. gke-storage-overview
-  folder=$(dirname "$rel_path" | sed 's/_/ /g')          # e.g. GKE/Storage
+  name=$(echo "${rel_path%.json}" | tr '/' '-')   # e.g. data-storage-overview
+  raw_folder=$(dirname "$rel_path")
+
+  # Convert folder path to Title/Case for Grafana folders
+  folder=$(echo "$raw_folder" | awk -F/ '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2); print}' OFS='/')
+  echo $folder
 
   cat <<EOF > "$CRD_DIR/$name.yaml"
 apiVersion: grafana.integreatly.org/v1beta1
