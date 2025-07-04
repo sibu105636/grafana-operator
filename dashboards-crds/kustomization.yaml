@@ -13,7 +13,6 @@ resources:
   - k8s-views-namespaces.yaml
   - k8s-views-nodes.yaml
   - k8s-views-pods.yaml
-  - kustomization.yaml
   - storage-k8s-addons-trivy-operator.yaml
   - storage-k8s-views-nodes.yaml
   - storage-substorage-k8s-system-coredns.yaml
