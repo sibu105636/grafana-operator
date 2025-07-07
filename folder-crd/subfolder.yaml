@@ -1,0 +1,11 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: subfolder-in-parent
+spec:
+  title: subfolder
+  # GrafanaFolder parent folder reference
+  parentFolderRef: folder-with-parent
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
