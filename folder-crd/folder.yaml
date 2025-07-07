@@ -1,9 +1,0 @@
-apiVersion: grafana.integreatly.org/v1beta1
-kind: GrafanaFolder
-metadata:
-  name: folder-with-parent
-spec:
-  title: parent_folder
-  instanceSelector:
-    matchLabels:
-      dashboards: "grafana"

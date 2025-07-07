@@ -4,4 +4,3 @@ namespace: grafana
 
 resources:
   - dashboards-crds/
-  - folder-crd/
