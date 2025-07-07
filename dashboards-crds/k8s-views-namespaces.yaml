@@ -9,7 +9,7 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
-  folder: "."
+  folder: "parent_folder/subfolder"
   json: |
     {
       "__inputs": [
