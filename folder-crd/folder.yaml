@@ -3,7 +3,7 @@ kind: GrafanaFolder
 metadata:
   name: folder-with-parent
 spec:
-  title: parent folder
+  title: parent_folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
