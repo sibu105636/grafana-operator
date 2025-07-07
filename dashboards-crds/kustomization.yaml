@@ -4,8 +4,6 @@ kind: Kustomization
 resources:
   - k8s-views-global.yaml
   - k8s-addons-prometheus.yaml
-  - k8s-views-nodes.yaml
-  - k8s-system-coredns.yaml
   - k8s-system-api-server.yaml
   - storage-substorage-k8s-system-coredns.yaml
   - storage-k8s-views-nodes.yaml
